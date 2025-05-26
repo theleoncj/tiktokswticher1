@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .show {
+      opacity: 1;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="topliker" src="https://tikfinity.zerody.one/widget/topliker?cid=819422"></iframe>
+  <iframe id="topgifter" src="https://tikfinity.zerody.one/widget/topgifter?cid=819422"></iframe>
+
+  <script>
+    const topliker = document.getElementById('topliker');
+    const topgifter = document.getElementById('topgifter');
+    let showTopLiker = true;
+
+    function switchWidgets() {
+      if (showTopLiker) {
+        topliker.classList.add('show');
+        topgifter.classList.remove('show');
+      } else {
+        topliker.classList.remove('show');
+        topgifter.classList.add('show');
+      }
+      showTopLiker = !showTopLiker;
+    }
+
+    switchWidgets(); // show first
+    setInterval(switchWidgets, 15000); // switch every 15s
+  </script>
+</body>
+</html>
